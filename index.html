@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portfolio – No Noël Style</title>
+<style>
+html, body {
+  margin:0; padding:0; height:100%; font-family:'Inter', system-ui, sans-serif; overflow:hidden; scroll-behavior:smooth;
+}
+body { background:#000; color:#fff; }
+section {
+  position:relative; width:100%; height:100vh; display:flex; align-items:center; justify-content:center;
+  scroll-snap-align:start; overflow:hidden;
+}
+nav {
+  position:fixed; top:0; left:0; width:100%; display:flex; justify-content:center;
+  background:rgba(0,0,0,0.5); backdrop-filter:blur(8px); z-index:1000;
+}
+nav ul { list-style:none; display:flex; gap:2rem; padding:1rem 0; margin:0; }
+nav a { color:#fff; text-decoration:none; font-weight:500; text-transform:uppercase; letter-spacing:.1em; transition:.3s; }
+nav a:hover { opacity:.7; }
+
+/* Hero Glitch */
+#hero { overflow:hidden; }
+#hero canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; }
+.section-content { position:relative; z-index:1; text-align:center; max-width:1000px; }
+.glitch-wrap { position:relative; display:inline-block; }
+.glitch-base,
+.glitch-top,
+.glitch-bottom {
+  font-size: clamp(60px,12vw,120px);
+  font-weight:bold;
+}
+.glitch-base { position:relative; animation:flicker 3.5s infinite; }
+.glitch-top, .glitch-bottom { position:absolute; top:0; left:0; width:100%; }
+.glitch-top { clip-path: inset(0 0 60% 0); transform:translate3d(6px,-6px,0); opacity:.8; filter: drop-shadow(0 2px 6px rgba(255,0,80,.18)); }
+.glitch-bottom { clip-path: inset(60% 0 0 0); transform:translate3d(-6px,6px,0); opacity:.85; filter: drop-shadow(0 -2px 6px rgba(0,200,255,.12)); }
+@keyframes flicker {0%{opacity:1}10%{opacity:.85}20%{opacity:1}100%{opacity:1}}
+#hero p { margin-top:1rem; font-size:1.5rem; text-shadow:2px 2px 8px rgba(0,0,0,.7); color:#fff; }
+
+/* Section content */
+.section-content { opacity:0; transform:translateY(40px); transition:opacity .8s, transform .8s; }
+section.visible .section-content { opacity:1; transform:translateY(0); }
+h2 { font-size:clamp(24px,4vw,60px); margin-bottom:1rem; text-shadow:2px 2px 8px rgba(0,0,0,.7); }
+p, li { font-size:1.2rem; text-shadow:1px 1px 8px rgba(0,0,0,.7); }
+ul { list-style:none; padding:0; margin:0; }
+li { margin:0.5rem 0; }
+iframe { width:100%; max-width:560px; height:315px; border:0; border-radius:1rem; margin-top:1rem; }
+
+/* Section backgrounds */
+#projects { background: url('portfolio1.jpg') center/cover no-repeat; }
+#about { background: url('portfolio.jpg') center/cover no-repeat; }
+#contact { background: url('ecran-d-ordinateur-portable-noir-dans-une-piece-sombre-la-nuit.jpg') center/cover no-repeat; }
+
+#footer {
+  background: url('Gemini_Generated_Image_l4epyql4epyql4ep.jpg') center/cover no-repeat;
+}
+
+#footer .section-content {
+  text-align: center;
+  max-width: 600px;
+  margin: auto;
+  color: #fff;
+  padding: 2rem;
+  backdrop-filter: blur(4px);
+}
+
+#footer a img {
+  margin: 0 10px;
+  vertical-align: middle;
+  filter: brightness(0) invert(1); /* pour que les icônes ressortent sur fond sombre */
+}
+
+#footer a:hover img {
+  opacity: 0.7;
+}
+
+#footer a[download] {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #fff;
+  text-decoration: underline;
+}
+
+a {
+    text-decoration: none !important;
+    color: rgb(218, 54, 32);
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+<ul>
+<li><a href="#hero">Accueil</a></li>
+<li><a href="#projects">Whishlist</a></li>
+<li><a href="#about">À propos</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="#footer">Réseaux</a></li>
+
+</ul>
+</nav>
+
+<!-- Hero -->
+<section id="hero">
+  <canvas id="bg"></canvas>
+  <div class="section-content">
+    <div class="glitch-wrap">
+      <h1 class="glitch-base">NoNoël</h1>
+      <h1 class="glitch-top">NoNoël</h1>
+      <h1 class="glitch-bottom">NoNoël</h1>
+    </div>
+    <p>Liste de kdo bien fraiche chacal juste en dessous </p>
+  </div>
+</section>
+
+<!-- Projects / Wishlist -->
+<section id="projects">
+  <div class="section-content">
+    <h2>Liste de cadeaux 🎄</h2>
+    <ul>
+      <li>• <a href="https://www.amazon.fr/amplificateur-Bluetooth-Enceintes-Domestiques-T%C3%A9l%C3%A9commande/dp/B09CPWBWYQ/ref=sr_1_9?sr=8-9">Amplificateur</a></li>
+      <li>• Manette <a href="https://www.darty.com/nav/achat/ref/MC119078365.html">PS5</a>/<a href="https://www.darty.com/nav/achat/ref/MC115117700.html">Xboite</a></li>
+      <li>• <a href="https://bogrendigital.com/products/trivium-drums?tw_source=google&tw_adid=708353637976&tw_campaign=21556759673&tw_kwdid=kwd-2335594210787&gad_campaignid=21556759673">VST Bogren Trivium Drums</a></li>
+      <li>• Du <a href="https://store.steampowered.com/wishlist/id/rigings/?sort=discount">jeu vidéo</a></li>
+      <li>• Du matos connecté (prise, interrupteur, caméra, détecteur d'ouverture de porte ect.)</li>
+      <li>• Une mutuelle</li>
+    </ul>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="section-content">
+    <h2>À propos</h2>
+    <p>Passionné de musique et de jeux vidéo, je crée des projets immersifs et artistiques.</p>
+<iframe width="560" height="315" 
+  src="https://www.youtube-nocookie.com/embed/GPUzIddt4HE?rel=0&modestbranding=1" 
+  title="YouTube video player" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  allowfullscreen>
+</iframe>   
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="section-content">
+    <h2>Contact</h2>
+    <p><strong>Téléphone :</strong> 0661842004</p>
+    <p><strong>Email :</strong> <a  href="mailto:pouit.arnaud@gmail.com">pouit.arnaud@gmail.com</a></p>
+    <p><strong>LinkedIn :</strong> <a  href="https://www.linkedin.com/in/arnaud-pouit/" target="_blank">Mon profil LinkedIn</a></p>
+    <p><a href="CV_2025-10-06_Arnaud_Pouit.pdf" download style="color:#fff; text-decoration:none; padding:0.5rem 1rem; background:#1a73e8; border-radius:0.5rem;">Télécharger mon CV</a></p>
+  </div>
+</section>
+
+<section id="footer">
+  <div class="section-content">
+    <h2>Retrouvez-moi ici</h2>
+    <p>
+      <a href="https://www.twitch.tv/rigings" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitch.svg" alt="Twitch" width="40">
+      </a>
+      <a href="https://www.youtube.com/@rigings" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" width="40">
+      </a>
+      <a href="https://www.linkedin.com/in/arnaud-pouit/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" width="40">
+      </a>
+    </p>
+
+  </div>
+</section>
+
+<script>
+// Intersection Observer
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.3});
+document.querySelectorAll('section').forEach(sec=>observer.observe(sec));
+
+// Scroll snap
+const sections=document.querySelectorAll('section'); let currentIndex=0, isScrolling=false;
+function scrollToIndex(i){if(i<0)i=0;if(i>=sections.length)i=sections.length-1; isScrolling=true; sections[i].scrollIntoView({behavior:'smooth'}); currentIndex=i; setTimeout(()=>{isScrolling=false;},500);}
+window.addEventListener('wheel',e=>{if(isScrolling)return; e.deltaY>0?scrollToIndex(currentIndex+1):scrollToIndex(currentIndex-1);});
+window.addEventListener('keydown',e=>{if(isScrolling)return; e.key==='ArrowDown'?scrollToIndex(currentIndex+1):e.key==='ArrowUp'?scrollToIndex(currentIndex-1):null;});
+document.querySelectorAll('nav a').forEach(link=>{link.addEventListener('click',e=>{e.preventDefault(); scrollToIndex(Array.from(sections).indexOf(document.querySelector(link.getAttribute('href'))));});});
+
+// WebGL background for hero
+(function(){
+  const canvas=document.getElementById('bg'); 
+  const gl=canvas.getContext('webgl')||canvas.getContext('experimental-webgl');
+  if(!gl){document.body.style.background='#111'; return;}
+  function resize(){ const dpr=Math.min(window.devicePixelRatio||1,2); canvas.width=Math.floor(canvas.clientWidth*dpr); canvas.height=Math.floor(canvas.clientHeight*dpr); gl.viewport(0,0,canvas.width,canvas.height);}
+  resize(); window.addEventListener('resize',resize);
+  const vert=`attribute vec2 a_position; varying vec2 v_uv; void main(){v_uv=a_position*0.5+0.5; gl_Position=vec4(a_position,0,1);}`;
+  const frag=`precision highp float; varying vec2 v_uv; uniform float u_time; float rand(vec2 c){return fract(sin(dot(c,vec2(12.9898,78.233)))*43758.5453);} float noise(vec2 p){vec2 i=floor(p); vec2 f=fract(p); float a=rand(i); float b=rand(i+vec2(1,0)); float c=rand(i+vec2(0,1)); float d=rand(i+vec2(1,1)); vec2 u=f*f*(3.-2.*f); return mix(a,b,u.x)+(c-a)*u.y*(1.-u.x)+(d-b)*u.x*u.y;} void main(){ vec2 uv=v_uv-0.5; uv.x*=1.0; float n=noise(uv*20.0+u_time*0.5); vec3 col=mix(vec3(0.02,0.02,0.02),vec3(0.12,0.02,0.08),uv.y); col+=n*0.08; gl_FragColor=vec4(col,1.0); }`;
+  function compile(type,src){ const sh=gl.createShader(type); gl.shaderSource(sh,src); gl.compileShader(sh); return sh; }
+  const vs=compile(gl.VERTEX_SHADER,vert), fs=compile(gl.FRAGMENT_SHADER,frag); const prog=gl.createProgram(); gl.attachShader(prog,vs); gl.attachShader(prog,fs); gl.linkProgram(prog);
+  const pos=new Float32Array([-1,-1,1,-1,-1,1,1,1]); const buf=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,buf); gl.bufferData(gl.ARRAY_BUFFER,pos,gl.STATIC_DRAW);
+  gl.useProgram(prog); const aPos=gl.getAttribLocation(prog,'a_position'); gl.enableVertexAttribArray(aPos); gl.vertexAttribPointer(aPos,2,gl.FLOAT,false,0,0);
+  const uTime=gl.getUniformLocation(prog,'u_time'); let start=null;
+  function render(t){if(!start)start=t; const time=(t-start)*0.001; gl.useProgram(prog); gl.uniform1f(uTime,time); gl.drawArrays(gl.TRIANGLE_STRIP,0,4); requestAnimationFrame(render);}
+  requestAnimationFrame(render);
+})();
+</script>
+
+</body>
+
+
+<!-- FontAwesome CDN pour les icônes -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</html>
