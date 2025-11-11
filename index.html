@@ -21,6 +21,59 @@ nav ul { list-style:none; display:flex; gap:2rem; padding:1rem 0; margin:0; }
 nav a { color:#fff; text-decoration:none; font-weight:500; text-transform:uppercase; letter-spacing:.1em; transition:.3s; }
 nav a:hover { opacity:.7; }
 
+/* --- Menu responsive --- */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.9);
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    display: none;
+  }
+
+  nav ul.open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+  }
+}
+
+
 /* Hero Glitch */
 #hero { overflow:hidden; }
 #hero canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; }
@@ -93,15 +146,21 @@ a {
 <body>
 
 <nav>
-<ul>
-<li><a href="#hero">Accueil</a></li>
-<li><a href="#projects">Whishlist</a></li>
-<li><a href="#about">À propos</a></li>
-<li><a href="#contact">Contact</a></li>
-<li><a href="#footer">Réseaux</a></li>
-
-</ul>
+  <div class="nav-container">
+    <div class="logo">NoNoël</div>
+    <div class="menu-toggle" id="menu-toggle">
+      ☰
+    </div>
+    <ul id="menu">
+      <li><a href="#hero">Accueil</a></li>
+      <li><a href="#projects">Whishlist</a></li>
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#footer">Réseaux</a></li>
+    </ul>
+  </div>
 </nav>
+
 
 <!-- Hero -->
 <section id="hero">
@@ -204,6 +263,22 @@ document.querySelectorAll('nav a').forEach(link=>{link.addEventListener('click',
   function render(t){if(!start)start=t; const time=(t-start)*0.001; gl.useProgram(prog); gl.uniform1f(uTime,time); gl.drawArrays(gl.TRIANGLE_STRIP,0,4); requestAnimationFrame(render);}
   requestAnimationFrame(render);
 })();
+</script>
+
+<script>
+  // Menu responsive
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu');
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('open');
+  });
+
+  // Ferme le menu après un clic sur un lien (mobile UX)
+  document.querySelectorAll('#menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('open');
+    });
+  });
 </script>
 
 </body>
